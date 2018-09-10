@@ -1,4 +1,4 @@
-﻿namespace vnyi.HaLinh.Enums
+﻿namespace vnyi.VnInvoice.Enums
 {
     public enum MethodType
     {

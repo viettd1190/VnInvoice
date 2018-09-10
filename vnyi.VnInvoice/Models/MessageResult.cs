@@ -1,4 +1,4 @@
-﻿namespace vnyi.HaLinh.Models
+﻿namespace vnyi.VnInvoice.Models
 {
     public class MessageResult
     {

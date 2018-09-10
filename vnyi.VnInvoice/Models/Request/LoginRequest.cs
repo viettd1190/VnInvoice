@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace vnyi.HaLinh.Models
+namespace vnyi.VnInvoice.Models.Request
 {
     public class LoginRequest
     {

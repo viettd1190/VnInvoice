@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EA5FB9EE-D1D4-472C-86FB-1EFE7EEFEFF0}</ProjectGuid>
+    <ProjectGuid>{87731A53-3EA2-4314-82A2-5E44F6055BF9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>vnyi.HaLinh</RootNamespace>
-    <AssemblyName>vnyi.HaLinh</AssemblyName>
+    <RootNamespace>vnyi.VnInvoice</RootNamespace>
+    <AssemblyName>vnyi.VnInvoice</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -43,19 +43,37 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppUtil.cs" />
-    <Compile Include="Enums\MethodType.cs" />
-    <Compile Include="Enums\StringValueAttribute.cs" />
-    <Compile Include="Extensions.cs" />
-    <Compile Include="HaLinh.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Enums\PaymentMethodType.cs" />
+    <Compile Include="Enums\VatPercentType.cs" />
     <Compile Include="Models\Authentication.cs" />
-    <Compile Include="Models\BaseResponse.cs" />
-    <Compile Include="Models\InvoiceCreateRequest.cs" />
-    <Compile Include="Models\InvoiceCreateResponse.cs" />
-    <Compile Include="Models\LoginRequest.cs" />
-    <Compile Include="Models\LoginResponse.cs" />
+    <Compile Include="Models\DataModel\InvoiceAdjustmentHeaderModel.cs" />
+    <Compile Include="Models\DataModel\InvoiceApproveAndSignModel.cs" />
+    <Compile Include="Models\DataModel\InvoiceCancelModel.cs" />
+    <Compile Include="Models\DataModel\InvoiceDeleteModel.cs" />
+    <Compile Include="Models\DataModel\InvoiceReplaceModel.cs" />
+    <Compile Include="Models\DataModel\InvoiceUpdateModel.cs" />
+    <Compile Include="Models\Request\InvoiceAdjustmentHeaderRequest.cs" />
+    <Compile Include="Models\Request\InvoiceCancelRequest.cs" />
+    <Compile Include="Models\Request\InvoiceDeleteRequest.cs" />
+    <Compile Include="Models\Request\InvoiceReplaceRequest.cs" />
+    <Compile Include="Models\Response\BaseResponse.cs" />
+    <Compile Include="Models\DataModel\InvoiceCreateModel.cs" />
+    <Compile Include="Models\Request\InvoiceCreateRequest.cs" />
+    <Compile Include="Models\Response\InvoiceAdjustmentHeaderResponse.cs" />
+    <Compile Include="Models\Response\InvoiceApproveAndSignResponse.cs" />
+    <Compile Include="Models\Response\InvoiceCancelResponse.cs" />
+    <Compile Include="Models\Response\InvoiceCreateResponse.cs" />
+    <Compile Include="Models\Request\LoginRequest.cs" />
+    <Compile Include="Models\Response\InvoiceDeleteResponse.cs" />
+    <Compile Include="Models\Response\InvoiceReplaceResponse.cs" />
+    <Compile Include="Models\Response\LoginResponse.cs" />
     <Compile Include="Models\MessageResult.cs" />
+    <Compile Include="Enums\MethodType.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="Models\UserToken.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VnInvoice.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

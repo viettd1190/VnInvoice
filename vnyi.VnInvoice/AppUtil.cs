@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Net;
-using vnyi.HaLinh.Enums;
-using vnyi.HaLinh.Models;
+using vnyi.VnInvoice.Enums;
+using vnyi.VnInvoice.Models;
 
-namespace vnyi.HaLinh
+namespace vnyi.VnInvoice
 {
     public class AppUtil
     {
-        public static Dictionary<string,UserToken> UserTokens=new Dictionary<string, UserToken>();
+        public static Dictionary<string, UserToken> UserTokens = new Dictionary<string, UserToken>();
 
         public static string CreateRequest(string url,
                                            string data,
@@ -16,7 +16,7 @@ namespace vnyi.HaLinh
                                            MethodType method = MethodType.POST,
                                            string contentType = "application/json")
         {
-            var httpWebRequest = (HttpWebRequest) WebRequest.Create(url);
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
             httpWebRequest.ContentType = contentType;
             switch (method)
             {
@@ -37,15 +37,15 @@ namespace vnyi.HaLinh
                     break;
             }
 
-            if(!string.IsNullOrEmpty(token))
+            if (!string.IsNullOrEmpty(token))
             {
                 httpWebRequest.Headers.Add("Authorization",
                                            "Bearer " + token);
             }
-            
+
             httpWebRequest.Proxy = new WebProxy(); //no proxy
 
-            if(!string.IsNullOrEmpty(data))
+            if (!string.IsNullOrEmpty(data))
             {
                 using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
                 {
@@ -57,9 +57,9 @@ namespace vnyi.HaLinh
                 }
             }
 
-            var httpResponse = (HttpWebResponse) httpWebRequest.GetResponse();
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
             string result = string.Empty;
-            if(httpResponse.GetResponseStream() != null)
+            if (httpResponse.GetResponseStream() != null)
             {
                 using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
                 {

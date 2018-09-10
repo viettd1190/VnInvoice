@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("vnyi.HaLinh")]
+[assembly: AssemblyTitle("vnyi.VnInvoice")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("vnyi.HaLinh")]
+[assembly: AssemblyProduct("vnyi.VnInvoice")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("ea5fb9ee-d1d4-472c-86fb-1efe7eefeff0")]
+[assembly: Guid("87731a53-3ea2-4314-82a2-5e44f6055bf9")]
 
 // Version information for an assembly consists of the following four values:
 //

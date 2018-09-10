@@ -1,10 +1,69 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Newtonsoft.Json;
+using vnyi.VnInvoice.Models.DataModel;
 
-namespace vnyi.HaLinh.Models
+namespace vnyi.VnInvoice.Models.Request
 {
     public class InvoiceCreateRequest
     {
+        public InvoiceCreateRequest()
+        {
+            string id = Guid.NewGuid()
+                            .ToString();
+            TransactionId = id;
+            Id = id;
+        }
+
+        public InvoiceCreateRequest(InvoiceCreateModel model) : this()
+        {
+            if(model != null)
+            {
+                if(!string.IsNullOrEmpty(model.Id))
+                {
+                    Id = model.Id;
+                }
+
+                Username = model.Username;
+                BuyerId = model.BuyerId;
+                BuyerCode = model.BuyerCode;
+                BuyerGroupId = model.BuyerGroupId;
+                BuyerGroupName = model.BuyerGroupName;
+                BuyerGroupCode = model.BuyerGroupCode;
+                Currency = string.IsNullOrEmpty(model.Currency)
+                                   ? "VN"
+                                   : model.Currency;
+                InvoiceDate = model.InvoiceDate.ConvertToString();
+                Note = model.Note;
+                TemplateNo = model.TemplateNo;
+                SerialNo = model.SerialNo;
+                InvoiceTypeCode = model.InvoiceTypeCode;
+                ExchangeRate = string.Equals(model.Currency,
+                                             "VN")
+                                       ? 1
+                                       : model.ExchangeRate ?? 1;
+                PaymentMethod = model.PaymentMethod.ConvertToString();
+                PaymentDate = model.PaymentDate.ConvertToString();
+
+                TotalDiscountPercentAfterTax = model.TotalDiscountPercentAfterTax;
+                TotalDiscountAmountAfterTax = model.TotalDiscountAmountAfterTax;
+
+                BuyerEmail = model.BuyerEmail;
+                BuyerFullName = model.BuyerFullName;
+                BuyerLegalName = model.BuyerLegalName;
+                BuyerTaxCode = model.BuyerTaxCode;
+                BuyerAddressLine = model.BuyerAddressLine;
+                BuyerPostalCode = model.BuyerPostalCode;
+                BuyerDistrictName = model.BuyerDistrictName;
+                BuyerCityName = model.BuyerCityName;
+                BuyerCountryCode = model.BuyerCountryCode;
+                BuyerPhoneNumber = model.BuyerPhoneNumber;
+                BuyerFaxNumber = model.BuyerFaxNumber;
+                BuyerBankName = model.BuyerBankName;
+                BuyerBankAccount = model.BuyerBankAccount;
+            }
+        }
+
         /// <summary>
         ///     Mã giao dịch
         /// </summary>
@@ -236,6 +295,53 @@ namespace vnyi.HaLinh.Models
 
     public class InvoiceDetail
     {
+        public InvoiceDetail()
+        {
+            Id = Guid.NewGuid()
+                     .ToString();
+        }
+
+        public InvoiceDetail(InvoiceDetailModel model) : this()
+        {
+            if(model != null)
+            {
+                ProductId = model.ProductId;
+                UnitId = model.UnitId;
+                ProductNo = model.ProductNo;
+                ProductName = model.ProductName;
+                UnitName = model.UnitName;
+                UnitPrice = model.UnitPrice;
+                Quantity = model.Quantity;
+
+                double discountPercentBeforeTax = model.DiscountPercentBeforeTax ?? 0;
+                DiscountPercentBeforeTax = discountPercentBeforeTax;
+
+                double discountAmountBeforeTax = model.DiscountAmountBeforeTax ?? 0;
+                if(discountAmountBeforeTax == 0)
+                {
+                    if(discountPercentBeforeTax > 0)
+                    {
+                        discountAmountBeforeTax = model.UnitPrice * model.Quantity * discountPercentBeforeTax / 100;
+                    }
+                }
+
+                DiscountAmountBeforeTax = discountAmountBeforeTax;
+
+                VatPercent = (int) model.VatPercent;
+                VatPercentDisplay = model.VatPercent.ConvertToString();
+
+                double payment = model.UnitPrice * model.Quantity - discountAmountBeforeTax;
+
+                Amount = payment;
+                double vatAmount = payment.CalcTax(model.VatPercent);
+
+                VatAmount = vatAmount;
+                PaymentAmount = payment + vatAmount;
+
+                Note = model.Note;
+            }
+        }
+
         /// <summary>
         ///     Id sản phẩm
         /// </summary>
@@ -340,6 +446,20 @@ namespace vnyi.HaLinh.Models
 
     public class InvoiceTaxBreakdown
     {
+        public InvoiceTaxBreakdown()
+        {
+        }
+
+        public InvoiceTaxBreakdown(InvoiceTaxBreakdownModel model) : this()
+        {
+            if(model != null)
+            {
+                VatPercent = (int) model.VatPercent;
+                VatAmount = model.VatAmount;
+                Name = model.VatPercent.ConvertToString();
+            }
+        }
+
         /// <summary>
         ///     Tên loại thuế
         /// </summary>

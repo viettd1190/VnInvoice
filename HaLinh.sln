@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vnyi.HaLinh", "vnyi.HaLinh\vnyi.HaLinh.csproj", "{EA5FB9EE-D1D4-472C-86FB-1EFE7EEFEFF0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vnyi.VnInvoice", "vnyi.VnInvoice\vnyi.VnInvoice.csproj", "{87731A53-3EA2-4314-82A2-5E44F6055BF9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EA5FB9EE-D1D4-472C-86FB-1EFE7EEFEFF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EA5FB9EE-D1D4-472C-86FB-1EFE7EEFEFF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EA5FB9EE-D1D4-472C-86FB-1EFE7EEFEFF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EA5FB9EE-D1D4-472C-86FB-1EFE7EEFEFF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87731A53-3EA2-4314-82A2-5E44F6055BF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87731A53-3EA2-4314-82A2-5E44F6055BF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87731A53-3EA2-4314-82A2-5E44F6055BF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87731A53-3EA2-4314-82A2-5E44F6055BF9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

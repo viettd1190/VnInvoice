@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
 
-namespace vnyi.HaLinh.Models
+namespace vnyi.VnInvoice.Models.Response
 {
-    public class InvoiceCreateResponse
+    public class InvoiceCancelResponse
     {
         /// <summary>
         ///     Id bản ghi
@@ -11,13 +11,7 @@ namespace vnyi.HaLinh.Models
         public string Id { get; set; }
 
         /// <summary>
-        ///     Id hóa đơn
-        /// </summary>
-        [JsonProperty(PropertyName = "idErp")]
-        public string ErpId { get; set; }
-
-        /// <summary>
-        ///     Mã giao dịch
+        ///     Id phiên giao dịch
         /// </summary>
         [JsonProperty(PropertyName = "idTransaction")]
         public string TransactionId { get; set; }

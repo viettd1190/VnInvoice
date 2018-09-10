@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace vnyi.HaLinh.Models
+namespace vnyi.VnInvoice.Models
 {
     public class UserToken
     {
