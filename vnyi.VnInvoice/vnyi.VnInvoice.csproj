@@ -47,6 +47,10 @@
     <Compile Include="Enums\PaymentMethodType.cs" />
     <Compile Include="Enums\VatPercentType.cs" />
     <Compile Include="Models\Authentication.cs" />
+    <Compile Include="Models\DataModel\EconomicInvoiceDeleteModel.cs" />
+    <Compile Include="Models\DataModel\EconomicInvoiceCreateModel.cs" />
+    <Compile Include="Models\DataModel\EconomicInvoiceSignModel.cs" />
+    <Compile Include="Models\DataModel\EconomicInvoiceUpdateModel.cs" />
     <Compile Include="Models\DataModel\InternalDeliveryCreateModel.cs" />
     <Compile Include="Models\DataModel\InternalDeliveryDeleteModel.cs" />
     <Compile Include="Models\DataModel\InternalDeliverySignModel.cs" />
@@ -58,6 +62,9 @@
     <Compile Include="Models\DataModel\InvoiceDeleteModel.cs" />
     <Compile Include="Models\DataModel\InvoiceReplaceModel.cs" />
     <Compile Include="Models\DataModel\InvoiceUpdateModel.cs" />
+    <Compile Include="Models\Request\EconomicInvoiceCreateRequest.cs" />
+    <Compile Include="Models\Request\EconomicInvoiceDeleteRequest.cs" />
+    <Compile Include="Models\Request\EconomicInvoiceUpdateRequest.cs" />
     <Compile Include="Models\Request\InternalDeliveryCreateRequest.cs" />
     <Compile Include="Models\Request\InternalDeliveryDeleteRequest.cs" />
     <Compile Include="Models\Request\InternalDeliveryUpdateRequest.cs" />
@@ -69,6 +76,10 @@
     <Compile Include="Models\Response\BaseResponse.cs" />
     <Compile Include="Models\DataModel\InvoiceCreateModel.cs" />
     <Compile Include="Models\Request\InvoiceCreateRequest.cs" />
+    <Compile Include="Models\Response\EconomicInvoiceCreateResponse.cs" />
+    <Compile Include="Models\Response\EconomicInvoiceDeleteResponse.cs" />
+    <Compile Include="Models\Response\EconomicInvoiceSignResponse.cs" />
+    <Compile Include="Models\Response\EconomicInvoiceUpdateResponse.cs" />
     <Compile Include="Models\Response\InternalDeliveryDeleteResponse.cs" />
     <Compile Include="Models\Response\InternalDeliveryCreateResponse.cs" />
     <Compile Include="Models\Response\InternalDeliverySignResponse.cs" />

@@ -715,5 +715,180 @@ namespace vnyi.VnInvoice
 
             return result;
         }
+
+        /// <summary>
+        ///     Tạo phiếu xuất hàng gửi đại lý
+        /// </summary>
+        /// <param name="authentication"></param>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public MessageResult EconomicCreate(Authentication authentication,
+                                            EconomicInvoiceCreateModel model)
+        {
+            MessageResult result = new MessageResult();
+            try
+            {
+                var token = GetToken(authentication);
+
+                if(!string.IsNullOrEmpty(token))
+                {
+                    string apiLink = $"{authentication.DomainName}/api/invoice04-api/creates";
+
+                    EconomicInvoiceCreateRequest request = new EconomicInvoiceCreateRequest(model);
+
+                    var rawResponse = AppUtil.CreateRequest(apiLink,
+                                                            request.ToJson(),
+                                                            token);
+                    var response = rawResponse.ToObject<BaseResponse<EconomicInvoiceCreateResponse>>();
+                    if(response != null)
+                    {
+                        result.Code = response.Code;
+                        result.Succeeded = response.Succeeded;
+                        result.Data = response.Data;
+                    }
+                }
+                else
+                {
+                    result.CannotLogin();
+                }
+            }
+            catch (Exception)
+            {
+                result.ErrorApi();
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        ///     Cập nhật hoặc thay thế 1 phiếu xuất hàng gửi đại lý
+        /// </summary>
+        /// <param name="authentication"></param>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public MessageResult EconomicUpdate(Authentication authentication,
+                                            EconomicInvoiceUpdateModel model)
+        {
+            MessageResult result = new MessageResult();
+            try
+            {
+                var token = GetToken(authentication);
+
+                if(!string.IsNullOrEmpty(token))
+                {
+                    string apiLink = $"{authentication.DomainName}/api/invoice04-api/update/{model.ReferenceId}";
+
+                    EconomicInvoiceUpdateRequest request = new EconomicInvoiceUpdateRequest(model);
+
+                    var rawResponse = AppUtil.CreateRequest(apiLink,
+                                                            request.ToJson(),
+                                                            token,
+                                                            MethodType.PUT);
+                    var response = rawResponse.ToObject<BaseResponse<EconomicInvoiceUpdateResponse>>();
+                    if(response != null)
+                    {
+                        result.Code = response.Code;
+                        result.Succeeded = response.Succeeded;
+                        result.Data = response.Data;
+                    }
+                }
+                else
+                {
+                    result.CannotLogin();
+                }
+            }
+            catch (Exception)
+            {
+                result.ErrorApi();
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        ///     Xóa bỏ hoặc xóa hủy 1 phiếu xuất có trên hệ thống dựa vào trạng thái của phiếu đó
+        /// </summary>
+        /// <param name="authentication"></param>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public MessageResult EconomicDelete(Authentication authentication,
+                                            EconomicInvoiceDeleteModel model)
+        {
+            MessageResult result = new MessageResult();
+            try
+            {
+                var token = GetToken(authentication);
+
+                if(!string.IsNullOrEmpty(token))
+                {
+                    string apiLink = $"{authentication.DomainName}/api/invoice04-api/delete/{model.Id}";
+
+                    EconomicInvoiceDeleteRequest request = new EconomicInvoiceDeleteRequest(model);
+
+                    var rawResponse = AppUtil.CreateRequest(apiLink,
+                                                            request.ToJson(),
+                                                            token);
+                    var response = rawResponse.ToObject<BaseResponse<EconomicInvoiceDeleteResponse>>();
+                    if(response != null)
+                    {
+                        result.Code = response.Code;
+                        result.Succeeded = response.Succeeded;
+                        result.Data = response.Data;
+                    }
+                }
+                else
+                {
+                    result.CannotLogin();
+                }
+            }
+            catch (Exception)
+            {
+                result.ErrorApi();
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        ///     Ký phiếu xuất kho trên hệ thống
+        /// </summary>
+        /// <param name="authentication"></param>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public MessageResult EconomicSign(Authentication authentication,
+                                          EconomicInvoiceSignModel model)
+        {
+            MessageResult result = new MessageResult();
+            try
+            {
+                var token = GetToken(authentication);
+
+                if(!string.IsNullOrEmpty(token))
+                {
+                    string apiLink = $"{authentication.DomainName}/api/invoice04-api/sign/{model.Id}";
+
+                    var rawResponse = AppUtil.CreateRequest(apiLink,
+                                                            string.Empty,
+                                                            token);
+                    var response = rawResponse.ToObject<BaseResponse<EconomicInvoiceSignResponse>>();
+                    if(response != null)
+                    {
+                        result.Code = response.Code;
+                        result.Succeeded = response.Succeeded;
+                        result.Data = response.Data;
+                    }
+                }
+                else
+                {
+                    result.CannotLogin();
+                }
+            }
+            catch (Exception exception)
+            {
+                result.ErrorApi();
+            }
+
+            return result;
+        }
     }
 }
