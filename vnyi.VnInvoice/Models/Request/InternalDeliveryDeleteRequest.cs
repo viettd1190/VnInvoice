@@ -3,45 +3,35 @@ using vnyi.VnInvoice.Models.DataModel;
 
 namespace vnyi.VnInvoice.Models.Request
 {
-    public class InvoiceAdjustmentHeaderRequest
+    public class InternalDeliveryDeleteRequest
     {
-        public InvoiceAdjustmentHeaderRequest()
+        public InternalDeliveryDeleteRequest()
         {
         }
 
-        public InvoiceAdjustmentHeaderRequest(InvoiceAdjustmentHeaderModel model) : this()
+        public InternalDeliveryDeleteRequest(InternalDeliveryDeleteModel model) : this()
         {
-            if(model != null)
-            {
-                Id = model.Id;
-                RecordNo = model.RecordNo;
-                RecordDate = model.RecordDate.ConvertToString();
-                Reason = model.Reason;
-                FileNameOfRecord = model.FileNameOfRecord;
-                FileOfRecord = model.FileOfRecord;
-            }
+            RecordNo = model.RecordNo;
+            RecordDate = model.RecordDate.ConvertToString();
+            Reason = model.Reason;
+            FileOfRecord = model.FileOfRecord;
+            FileNameOfRecord = model.FileNameOfRecord;
         }
 
         /// <summary>
-        ///     ID hóa đơn cần điều chỉnh
-        /// </summary>
-        [JsonProperty(PropertyName = "id")]
-        public string Id { get; set; }
-
-        /// <summary>
-        ///     Số biên bản điều chỉnh
+        ///     Số biên bản
         /// </summary>
         [JsonProperty(PropertyName = "recordNo")]
         public string RecordNo { get; set; }
 
         /// <summary>
-        ///     Ngày biên bản điều chỉnh
+        ///     Ngày lập biên bản
         /// </summary>
         [JsonProperty(PropertyName = "recordDate")]
         public string RecordDate { get; set; }
 
         /// <summary>
-        ///     Lý do điều chỉnh
+        ///     Lý do thay thế
         /// </summary>
         [JsonProperty(PropertyName = "reason")]
         public string Reason { get; set; }
@@ -53,7 +43,7 @@ namespace vnyi.VnInvoice.Models.Request
         public string FileNameOfRecord { get; set; }
 
         /// <summary>
-        ///     Nội dung file biên bản base64
+        ///     Nội dung biên bản
         /// </summary>
         [JsonProperty(PropertyName = "fileOfRecord")]
         public string FileOfRecord { get; set; }

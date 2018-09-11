@@ -1,6 +1,6 @@
 ﻿namespace vnyi.VnInvoice.Models.Response
 {
-    public class InvoiceAdjustmentHeaderResponse
+    public class InternalDeliverySignResponse
     {
         
     }

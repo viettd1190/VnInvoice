@@ -2,25 +2,25 @@
 
 namespace vnyi.VnInvoice.Models.DataModel
 {
-    public class InvoiceAdjustmentHeaderModel
+    public class InternalDeliveryDeleteModel
     {
         /// <summary>
-        ///     ID hóa đơn cần điều chỉnh
+        ///     Id hóa đơn cần xóa
         /// </summary>
         public string Id { get; set; }
 
         /// <summary>
-        ///     Số biên bản điều chỉnh
+        ///     Số biên bản
         /// </summary>
         public string RecordNo { get; set; }
 
         /// <summary>
-        ///     Ngày biên bản điều chỉnh
+        ///     Ngày lập biên bản
         /// </summary>
         public DateTime RecordDate { get; set; }
 
         /// <summary>
-        ///     Lý do điều chỉnh
+        ///     Lý do thay thế
         /// </summary>
         public string Reason { get; set; }
 
@@ -30,7 +30,7 @@ namespace vnyi.VnInvoice.Models.DataModel
         public string FileNameOfRecord { get; set; }
 
         /// <summary>
-        ///     Nội dung file biên bản base64
+        ///     Nội dung biên bản
         /// </summary>
         public string FileOfRecord { get; set; }
     }
